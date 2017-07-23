@@ -51,6 +51,32 @@ def list_subreddits():
     # Close connection
     conn.close()
 
+def update_posts():
+    ''' Update the number of posts for a subreddit'''
+
+    # Verify database exists
+    database_exists()
+
+    # Subreddit and number of posts to update
+    subreddit, posts = input("Enter subreddit and updated posts: ").split(',')
+
+    # Limit number of posts to 5
+    if int(posts) > 5:
+        posts = 5
+    else:
+        posts = int(posts)
+
+    # Open connection to database and use cursor to execute SQL commands
+    conn = sqlite3.connect('subreddits.db')
+    c = conn.cursor()
+
+    # Update number of posts in database
+    c.execute("UPDATE news SET posts = ? WHERE subreddits = ?", (posts, subreddit))
+
+    # Commit changes and close connection
+    conn.commit()
+    conn.close()
+
 def delete():
     
     # Verify database exists
