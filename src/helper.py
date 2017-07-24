@@ -8,7 +8,6 @@ import setup
 import os
 import sqlite3
 
-
 def database_exists():
     ''' Create database if it doesn't exist '''
 
