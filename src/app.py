@@ -18,7 +18,6 @@ def main():
 
     # Retrieve subreddits from database
     rows = list(c.execute("SELECT * FROM news"))
-    print(rows)
 
     # Close connection
     conn.close()
@@ -55,8 +54,8 @@ def compose_message(dict_posts):
     
     # Send text with prepared message
     # To and From must be authorized with Twilio account
-    message = client.messages.create(to="+12894892495",
-                                     from_="+12892051305",
+    message = client.messages.create(to=os.environ.get('TWILIO_TO_NUM'),
+                                     from_=os.environ.get('TWILIO_FROM_NUM'),
                                      body=text)
 
     return message.sid
@@ -78,7 +77,7 @@ def get_posts(subreddits):
 
         # Retrieve top submissions for subreddit if it exists
         try:
-            submissions = list(reddit.subreddit(subreddit[0]).top(limit = subreddit[1]))
+            submissions = list(reddit.subreddit(subreddit[0]).top('day',limit = subreddit[1]))
         except:
             print('ERROR: The subreddit, {} doesn\'t exist. Delete using helper function.\n'.format(subreddit[0]))
 
