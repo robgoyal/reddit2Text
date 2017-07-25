@@ -78,11 +78,12 @@ def get_posts(subreddits):
         # Retrieve top submissions for subreddit if it exists
         try:
             submissions = list(reddit.subreddit(subreddit[0]).top('day',limit = subreddit[1]))
+
+            # Set value of subreddit key to list of submissions
+            posts[subreddit[0]] = submissions
+
         except:
             print('ERROR: The subreddit, {} doesn\'t exist. Delete using helper function.\n'.format(subreddit[0]))
-
-        # Set value of subreddit key to list of submissions
-        posts[subreddit[0]] = submissions
 
     return posts
 
