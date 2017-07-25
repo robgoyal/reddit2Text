@@ -4,7 +4,7 @@
 
 The motivation for this project came from an attempt to reduce wasted time spent on social media sites and reddit. This script would take top daily posts from my favourite subreddits and send the links through text. 
 
-![Example of Text](img/example.png "Example Text")
+<img src="img/example.png" alt="Example Text Message" width=442 height=750>
 
 ## Procedure
 
