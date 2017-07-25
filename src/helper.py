@@ -1,6 +1,6 @@
 # Name: helper.py
 # Author: Robin Goyal
-# Last-Modified: July 23, 2017
+# Last-Modified: July 25, 2017
 # Purpose: Functions to list, insert, and delete subreddits from database
 # Note: Still need to perform error and data handling
 
